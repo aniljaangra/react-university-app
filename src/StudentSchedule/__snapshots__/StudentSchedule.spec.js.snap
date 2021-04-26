@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StudentSchedule renders correctly 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    sm={5}
+  >
+    <AttendanceRecord />
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    sm={1}
+  />
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    sm={6}
+  >
+    <Scheduler />
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;
