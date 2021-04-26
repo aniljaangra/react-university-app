@@ -131,7 +131,7 @@ describe('root reducer', () => {
     });
 
     it('should not assign any teacher if all teachers are absent up in the hierarchy', () => {
-      const { teacher } = initialData.schedule[2]; // Minerva McGonagall - Level 3
+      const { teacher } = initialData.schedule[1]; // Minerva McGonagall - Level 3
       const reducerOutput1 = reducer(initialData,
         setTeacherAttendance(
           { attendance: ATTENDANCE.ABSENT, teacher: initialData.teachers[0].teacher },
