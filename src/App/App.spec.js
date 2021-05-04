@@ -7,11 +7,6 @@ import App from './App';
 import initialState from './initialState';
 
 describe('App', () => {
-  it('renders correctly', () => {
-    const tree = shallow(<App />);
-    expect(toJson(tree)).toMatchSnapshot();
-  });
-
   it('renders StudentSchedule component correctly', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find(StudentSchedule).length).toEqual(1);

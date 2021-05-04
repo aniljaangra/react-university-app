@@ -10,8 +10,8 @@ import AttendanceRecordComponent from './AttendanceRecord';
 const AttendanceRecord = () => {
   const attendanceData = useSelector(({ teachers }) => teachers);
   const dispatch = useDispatch();
-  const onSelect = (event, teacher) => {
-    dispatch(setTeacherAttendance({ teacher, attendance: event.target.value }));
+  const onSelect = (event, teacherId) => {
+    dispatch(setTeacherAttendance({ id: teacherId, attendance: event.target.value }));
   };
   return (
     <AttendanceRecordComponent

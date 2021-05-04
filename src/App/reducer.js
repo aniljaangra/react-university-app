@@ -8,7 +8,7 @@ const { PRESENT, ABSENT } = ATTENDANCE;
 
 const updateData = ({ teachers, schedule }, data) => {
   const teacherIndex = teachers.findIndex(
-    ({ teacher }) => teacher === data.teacher,
+    ({ id }) => id === data.id,
   );
   if (data.attendance === ABSENT) {
     const updatedTeachers = [
@@ -25,12 +25,12 @@ const updateData = ({ teachers, schedule }, data) => {
       teachers: updatedTeachers,
       schedule: schedule.map((scheduleData) => {
         if (
-          scheduleData.teacher === data.teacher
-            || scheduleData.teacher === NOT_ASSIGNED
+          scheduleData.currentTeacher === data.id
+            || scheduleData.currentTeacher === NOT_ASSIGNED
         ) {
           return {
             ...scheduleData,
-            teacher: availableTeachers.length ? availableTeachers[0].teacher : NOT_ASSIGNED,
+            currentTeacher: availableTeachers.length ? availableTeachers[0].id : NOT_ASSIGNED,
           };
         }
         return scheduleData;
@@ -44,8 +44,8 @@ const updateData = ({ teachers, schedule }, data) => {
       ...teachers.slice(teacherIndex + 1),
     ],
     schedule: schedule.map((scheduleData) => {
-      if (scheduleData.teacher === NOT_ASSIGNED) {
-        return { ...scheduleData, teacher: data.teacher };
+      if (scheduleData.assignedTeacher === data.id) {
+        return { ...scheduleData, currentTeacher: data.id };
       }
       return scheduleData;
     }),

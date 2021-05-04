@@ -28,7 +28,7 @@ const AttendanceRecord = ({ attendanceData, onSelect }) => (
           </TableRow>
         </TableHead>
         <TableBody>
-          {attendanceData.map(({ teacher, attendance }) => (
+          {attendanceData.map(({ teacher, attendance, id }) => (
             <TableRow key={teacher}>
               <TableCell><label htmlFor={teacher}>{teacher}</label></TableCell>
               <TableCell>
@@ -37,7 +37,7 @@ const AttendanceRecord = ({ attendanceData, onSelect }) => (
                   id={teacher}
                   style={{ minWidth: 120 }}
                   value={attendance}
-                  onChange={(event) => onSelect(event, teacher)}
+                  onChange={(event) => onSelect(event, id)}
                 >
                   <option label="present" value="present">Present</option>
                   <option label="absent" value="absent">Absent</option>
